@@ -5,9 +5,10 @@
     /// </summary>
     public static class Items
     {
-        public static Item GetItemById(int id)
+        public static ItemBase GetItemById(int id)
         {
             // 待完成
+            
             return new();
         }
     }
