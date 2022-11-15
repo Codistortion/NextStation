@@ -3,8 +3,16 @@ using SharpNBT;
 
 namespace NextStation.Data.Game.Property.Dynamic
 {
+    /// <summary>
+    /// 属性构造器
+    /// </summary>
     public static class PropertyBuilder
     {
+        /// <summary>
+        /// 根据NBT标签构造属性
+        /// </summary>
+        /// <param name="tag">NBT标签</param>
+        /// <returns>动态属性</returns>
         public static DynamicPropertyBase? GetProperty(Tag tag)
         {
             if (tag is EndTag) return null;

@@ -3,6 +3,9 @@ using SharpNBT;
 
 namespace NextStation.Data.Game.Property.Dynamic
 {
+    /// <summary>
+    /// 动态属性的集合，可以表示 物品 or 物块 or 物品的属性集 
+    /// </summary>
     public class PropertyContainer : INbt
     {
         private readonly List<DynamicPropertyBase> _properties = new();

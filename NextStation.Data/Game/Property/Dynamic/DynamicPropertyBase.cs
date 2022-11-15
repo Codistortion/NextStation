@@ -3,8 +3,14 @@ using SharpNBT;
 
 namespace NextStation.Data.Game.Property.Dynamic
 {
+    /// <summary>
+    /// 动态属性的类型(名称)
+    /// </summary>
     public abstract record DynamicPropertyTypeBase
     {
+        /// <summary>
+        /// 类型名称
+        /// </summary>
         public readonly string Name;
 
         protected DynamicPropertyTypeBase(string name)
@@ -13,6 +19,10 @@ namespace NextStation.Data.Game.Property.Dynamic
         }
     }
 
+    /// <summary>
+    /// 具有特定数据类型的属性类型
+    /// </summary>
+    /// <typeparam name="T">值的数据类型</typeparam>
     public sealed record DynamicPropertyType<T> : DynamicPropertyTypeBase
         where T : notnull
     {
@@ -20,10 +30,19 @@ namespace NextStation.Data.Game.Property.Dynamic
             : base(name) { }
     }
 
+    /// <summary>
+    /// 动态属性
+    /// </summary>
     public abstract class DynamicPropertyBase : INbt
     {
+        /// <summary>
+        /// 类型
+        /// </summary>
         public readonly DynamicPropertyTypeBase Type;
 
+        /// <summary>
+        /// 值
+        /// </summary>
         public abstract dynamic PropertyValue { get; }
 
         public abstract Tag ToNbt();
@@ -36,9 +55,16 @@ namespace NextStation.Data.Game.Property.Dynamic
         }
     }
 
+    /// <summary>
+    /// 具有特定数据类型的动态属性
+    /// </summary>
+    /// <typeparam name="T">值的数据类型</typeparam>
     public abstract class DynamicPropertyBase<T> : DynamicPropertyBase
         where T : notnull
     {
+        /// <summary>
+        /// 值（已经指明数据类型）
+        /// </summary>
         public T Value;
 
         public override dynamic PropertyValue => Value;
@@ -50,11 +76,17 @@ namespace NextStation.Data.Game.Property.Dynamic
         }
     }
 
+    /// <summary>
+    /// 动态属性集
+    /// </summary>
     public class DynamicProperties : INbt
     {
+        /// <summary>
+        /// 标签名称
+        /// </summary>
         const string tagName = "Properties";
 
-        List<DynamicPropertyBase> _properties = new();
+        public PropertyContainer Properties = new PropertyContainer();
 
         public DynamicProperties() { }
 
@@ -68,20 +100,13 @@ namespace NextStation.Data.Game.Property.Dynamic
             if (tag is not CompoundTag) throw new NbtTagTypeException(tag, TagType.Compound);
             if (tag.Name != tagName) throw new NbtTagNameException(tag, tagName);
             CompoundTag compoundTag = (CompoundTag)tag;
-            _properties = new();
-            foreach(Tag content in compoundTag)
-            {
-                // 未完成
-            }
+            Properties = new(compoundTag);
         }
 
         public Tag ToNbt()
         {
-            CompoundTag result = new CompoundTag(tagName);
-            foreach(DynamicPropertyBase property in _properties)
-            {
-                result.Add(property.ToNbt());
-            }
+            Tag result = Properties.ToNbt();
+            result.Name = tagName;
             return result;
         }
     }

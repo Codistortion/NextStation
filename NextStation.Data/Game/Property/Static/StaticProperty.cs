@@ -60,6 +60,10 @@
             Value = value;
         }
 
+        /// <summary>
+        /// 使用默认值构造静态属性
+        /// </summary>
+        /// <param name="type">类型</param>
         public StaticProperty(StaticPropertyType type)
         {
             Type = type;
@@ -72,6 +76,9 @@
     /// </summary>
     public struct StaticProperties
     {
+        /// <summary>
+        /// 结构内部储存静态属性的列表
+        /// </summary>
         private readonly StaticProperty[] _properties;
 
         /// <summary>

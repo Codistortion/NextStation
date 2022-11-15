@@ -1,6 +1,7 @@
 ﻿using NextStation.Data.Game.Nbt;
 using SharpNBT;
 
+// 各种动态属性，类型与NBT标签的类型对应
 namespace NextStation.Data.Game.Property.Dynamic
 {
     public class ByteDynamicProperty : DynamicPropertyBase<byte>
@@ -130,9 +131,12 @@ namespace NextStation.Data.Game.Property.Dynamic
             Value = stringTag.Value;
         }
     }
-
+    
     public class ListDynamicProperty : DynamicPropertyBase<Container>
     {
+        // 注意：List的内容类型只能是Compound
+        // 这是因为List被规定只能用作物品容器
+
         public ListDynamicProperty(DynamicPropertyType<Container> type, Container value)
             : base(type, value) { }
 
@@ -146,6 +150,8 @@ namespace NextStation.Data.Game.Property.Dynamic
 
     public class CompoundDynamicProperty : DynamicPropertyBase<PropertyContainer>
     {
+        // Compound可以表示 物品 or 物块 or 物品的属性集
+
         public CompoundDynamicProperty(DynamicPropertyType<PropertyContainer> type, PropertyContainer value)
             : base(type, value) { }
 

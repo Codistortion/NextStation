@@ -3,6 +3,9 @@ using SharpNBT;
 
 namespace NextStation.Data.Game.Property.Dynamic
 {
+    /// <summary>
+    /// 物品的容器
+    /// </summary>
     public class Container : INbt
     {
         private readonly List<PropertyContainer> _items = new();
@@ -32,5 +35,7 @@ namespace NextStation.Data.Game.Property.Dynamic
         {
             LoadFromNbt(tag);
         }
+
+        public Container() { }
     }
 }

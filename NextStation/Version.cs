@@ -17,10 +17,13 @@
  */
 namespace NextStation
 {
+    /// <summary>
+    /// 版本信息
+    /// </summary>
     public static class Version
     {
-        public static System.Version version => new(0, 0, 0);
+        public static System.Version MainVersion => new(0, 0, 0);
 
-        public static DateOnly releaseDate => new(0, 0, 0);
+        public static DateOnly ReleaseDate => new(0, 0, 0);
     }
 }
