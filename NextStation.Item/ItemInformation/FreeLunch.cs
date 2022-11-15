@@ -1,5 +1,5 @@
-﻿using NextStation.Item.Property.Static;
-using NextStation.Data.Game.Property.Static;
+﻿using NextStation.Data.Game.Property.Static;
+using NextStation.Item.Property.Static;
 
 namespace NextStation.Item.ItemInformation
 {
