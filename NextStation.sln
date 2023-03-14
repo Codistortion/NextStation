@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NextStation.Block", "NextSt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NextStation.Data", "NextStation.Data\NextStation.Data.csproj", "{8B8E6A94-A1A6-42ED-B9BB-C224478E00F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldMap", "WorldMap\WorldMap.csproj", "{2DDF4AFD-F1C9-4EA1-85B4-3B35DAA72492}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextStation.WorldMap", "NextStation.WorldMap\NextStation.WorldMap.csproj", "{2DDF4AFD-F1C9-4EA1-85B4-3B35DAA72492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
