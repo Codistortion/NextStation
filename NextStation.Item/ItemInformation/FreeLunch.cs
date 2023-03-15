@@ -3,9 +3,10 @@ using NextStation.Item.Property.Static;
 
 namespace NextStation.Item.ItemInformation
 {
-    public class FreeLunch : ItemBase
+    public class FreeLunch : Item
     {
-        public override int ID => -3;
+        public const int id = -3;
+        public override int ID => id;
 
         public override string Name => "0元购";
 

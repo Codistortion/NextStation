@@ -3,7 +3,7 @@
     /// <summary>
     /// 表示静态属性类型,请通过静态字段获取属性类型
     /// </summary>
-    public record struct StaticPropertyType
+    public readonly record struct StaticPropertyType
     {
         /// <summary>
         /// 属性ID
@@ -37,7 +37,7 @@
     /// <summary>
     /// 表示静态属性(类型和值)
     /// </summary>
-    public record struct StaticProperty
+    public readonly record struct StaticProperty
     {
         /// <summary>
         /// 属性类型
@@ -74,7 +74,7 @@
     /// <summary>
     /// 静态属性的集合
     /// </summary>
-    public struct StaticProperties
+    public readonly struct StaticProperties
     {
         /// <summary>
         /// 结构内部储存静态属性的列表

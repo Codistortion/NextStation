@@ -7,11 +7,15 @@ namespace NextStation.Item
     /// </summary>
     public static class Items
     {
-        public static ItemBase GetItemById(int id)
+        public static Item GetItemById(int id)
         {
             // 待完成
-
-            return new StrangeItem();
+            return id switch
+            {
+                StrangeItem.id => new StrangeItem(),
+                FreeLunch.id => new FreeLunch(),
+                _ => new StrangeItem(),
+            };
         }
     }
 }

@@ -86,7 +86,7 @@ namespace NextStation.Data.Game.Property.Dynamic
         /// </summary>
         const string tagName = "Properties";
 
-        public PropertyContainer Properties = new PropertyContainer();
+        public PropertyContainer Properties = new();
 
         public DynamicProperties() { }
 

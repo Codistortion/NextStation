@@ -1,7 +1,7 @@
 ﻿
 namespace NextStation.Block.BlockInformation
 {
-    public class Air : BlockBase
+    public class Air : Block
     {
         public override int ID => 0;
 
